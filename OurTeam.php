@@ -25,7 +25,7 @@
 			</div>
 			<div class="about-us">
 				<p>
-					hello
+					
 				</p>
 			</div>
 			
