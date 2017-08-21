@@ -3,6 +3,9 @@
 	{
 		$_SESSION['login_status']=0;
 	}
+	
+	
+	
 ?>
 
 <style>
@@ -45,7 +48,7 @@
 					<?php } if($_SESSION['page-name']=="index.php" || $_SESSION['page-name']=="search.php" || $_SESSION['page-name']=="OurTeam.php") { ?>
 	                        <li><a style="color:white" href="form.php">List your property</a></li>
 					<?php } ?>
-                            <li><a style="color:white" href="">Logout</a></li>
+                            <li><a style="color:white" href="logout.php">Logout</a></li>
 						</ul>
                     </div>  
                 </div>

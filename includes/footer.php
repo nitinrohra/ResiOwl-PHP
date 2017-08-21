@@ -1,3 +1,13 @@
+<?php
+	$con=mysqli_connect('localhost','root','','resiowl');
+	$query="select * from `home_form`";
+	$dat = mysqli_query($con,$query);
+	$data= mysqli_fetch_array($dat);
+
+
+?>
+
+
 <link rel="stylesheet" href="component/footer.css">
              <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
            
@@ -30,17 +40,17 @@
 
 				<div>
 					<i class="fa fa-map-marker"></i>
-					<p><span>Fiends colony</span> jaipur, INDIA</p>
+					<p><span><?php echo $data['address']; ?></p>
 				</div>
 
 				<div>
 					<i class="fa fa-phone"></i>
-					<p>+91 9782154685</p>
+					<p><?php echo $data['contact_info']; ?></p>
 				</div>
 
 				<div>
 					<i class="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">support@resiowl.com</a></p>
+					<p><a href="mailto:support@company.com"><?php echo $data['email']; ?></a></p>
 				</div>
 
 			</div>
@@ -49,7 +59,7 @@
 
 				<p class="footer-company-about">
 					<span>About the company</span>
-			Our company aims at providing the best place to live or rent for our coustomers
+					<?php echo $data['about']; ?>
 				</p>
 
 				<div class="footer-icons">

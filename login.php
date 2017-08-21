@@ -29,7 +29,7 @@
 
 
 
-
+		<!-- ----------------------------------------------------LOGIN----------------------------------------- -->
 
 
 			<div class="login col-xs-12 col-sm-4" ng-if="ctrl.logstatus">
@@ -40,9 +40,9 @@
 				<button class="loginBtn loginBtn--google btn-block">
 		  		<center>Login with Google</center>
 				</button>
-				<form name="loginform" novalidate>
+				<form name="loginform" novalidate action="login_db.php" method="post">
 					<center><h3>or</h3></center>
-		  		<div class="form-group" ng-submit="">
+					<div class="form-group" ng-submit="">
 						<label for="formGroupExampleInput"></label>
 						<input type="email" class="form-control" name="email" id="formGroupExampleInput" placeholder="Enter Email" ng-model="email" required>
 						<span ng-if="loginform.email.$error.required && loginform.$submitted">Email is Required</span>
@@ -63,7 +63,7 @@
 
 
 
-
+		<!-- --------------------------------------------SIGN UP-------------------------------------------------- -->
 
 
 
@@ -79,9 +79,9 @@
 						<div class="col-xs-12 col-sm-6"><button class="btn-info btn btn-block" ng-click="ctrl.statuschange()">Login</button></center></div>
 						<br><br><hr>
 						
-							<div class="col-xs-12 col-sm-6">
+						<div class="col-xs-12 col-sm-6">
 						<p>First Name<font>*</font></p>
-            <input type="text" name="Name" class="form-control" ng-model="ctrl.name" required>
+            <input type="text" nam e="Name" class="form-control" ng-model="ctrl.name" required>
 						<span ng-if="sform.Name.$invalid && sform.$submitted">Field Required<br></span><br>
 							</div>
 							<div class="col-xs-12 col-sm-6">
@@ -90,8 +90,19 @@
 								<br>
 							</div>
 							<div class="col-xs-12 col-sm-6">
+						<p>Phone no.<font>*</font></p>
+            <input type="text" name="phoneno" class="form-control" ng-model="ctrl.name" required>
+						<span ng-if="sform.Name.$invalid && sform.$submitted">Field Required<br></span><br>
+							</div>
+							<div class="col-xs-12 col-sm-6">
+							<p>Adhar Card no.<font>*</font></p>
+							<input type="text" name="idno" class="form-control" ng-model="ctrl.name" required>
+							<span ng-if="sform.Name.$invalid && sform.$submitted">Field Required<br></span><br>
+							</div>
+						
+							<div class="col-xs-12 col-sm-6">
 						<p> UserName<font>*</font></p>
-		        <input type="text" name="uname" class="form-control" ng-model="ctrl.uname" required>
+		        <input type="text" name="username" class="form-control" ng-model="ctrl.uname" required>
 						<span ng-if="sform.uname.$invalid && sform.$submitted">Field Required<br></span><br>
 									</div>
 							<div class="col-xs-12 col-sm-6">
@@ -114,20 +125,20 @@
 							<div class="col-xs-12 col-sm-6">
 						<p>Login as:</p>
 			 			<label class="radio-inline rad">
-              <input type="radio" name="auth" ng-model="ctrl.auth">Tenant
+              <input type="radio" name="usertype" value="0" ng-model="ctrl.auth">Tenant
 						</label>
 	          <label class="radio-inline rad">
-	            <input type="radio" name="auth" ng-model="ctrl.auth">Land Lord
+	            <input type="radio" name="usertype"value="1" ng-model="ctrl.auth">Land Lord
 						</label>
 						<span ng-if="sform.auth.$invalid && sform.$submitted">Auth Type Required<br></span><br><br/>
 							</div>
 							<div class="col-xs-12 col-sm-6">
 						<p>You are:</p> 
 			  		<label class="radio-inline rad">
-              <input type="radio" name="gender" ng-model="ctrl.gender">Female
+              <input type="radio" name="gender" value="f" ng-model="ctrl.gender">Female
             </label>
             <label class="radio-inline rad">
-             	<input type="radio" name="gender">Male
+             	<input type="radio" name="gender" value="m" >Male
             </label>
 						<span ng-if="sform.gender.$invalid && sform.$submitted">Gender Required<br></span><br><br/>
 							</div>
@@ -142,8 +153,7 @@
 				</form>	
       </div>
 		</div>
-	</div>
-	 <!-- ---------------------------------------footer----------------------------- -->
+	</div>	 <!-- ---------------------------------------footer----------------------------- -->
         <?php include('includes/footer.php'); ?>
 		 <!-- ---------------------------------------footer----------------------------- -->
         

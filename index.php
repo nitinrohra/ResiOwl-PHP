@@ -1,6 +1,12 @@
 <?php
 	session_start();
 	$_SESSION['page-name']="index.php";
+	
+	
+	$con=mysqli_connect('localhost','root','','resiowl');
+	$query="select * from `home_form`";
+	$dat=mysqli_query($con,$query);
+	$data	=	mysqli_fetch_array($dat);
 ?>
 
 
@@ -60,7 +66,9 @@
             <!-- --------------------------------- top bar   ------------------------------- -->
                             <?php include('includes/header.php'); ?>
 
-                            
+                             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="bootstrap.min.js"></script>
              <!-- --------------------------------- video logo div  ------------------------------- -->
             
             <div  class="banner row border" style="margin:0;border-top:0;">
@@ -197,10 +205,9 @@
                 <br />
                 <p>We will be very happy to help you and assist you in your search. Feel free to call us ,<br />
                 mail us or simply complete the contact form</p><br />
-                <p>999999999999</p><br />
-                <p>Monday-Sunday9AM-9PM</p><br />
-                
-                <p>roomrent@gmail.com</p>
+                <p><?php echo $data['contact_info']; ?></p><br />
+                <p><?php echo $data['timing']; ?></p><br />
+                <p><?php echo $data['email']; ?></p>
 			</div>
 
 		</div>             
@@ -213,6 +220,6 @@
 
                   <?php include('includes/footer.php'); ?>
         <!-- --------------------------------------------------------------------------------- -->
-        
+          
          </body>
 </html>

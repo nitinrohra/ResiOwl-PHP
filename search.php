@@ -1,4 +1,6 @@
-<?php
+
+
++3 <?php
 	session_start();
 	$_SESSION['page-name']="search.php";
 ?>
@@ -18,11 +20,11 @@
 		<script type="text/javascript" src="component/jquery.rateyo.js"></script>
 		<script src="component/bootstrap.min.js"></script>
 		<script src="component/main.js"></script>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="component/jquery.bxslider.min.js"></script>
 		<link href="component/jquery.bxslider.css" rel="stylesheet" />
 	</head>
-	<body class="body">
+	<body class="body" style="overflow-x:hidden;">
 			<?php include('includes/header.php'); ?>
 	      	<script src="component/bootstrap.min.js"></script>
 		<script type="text/javascript" src="component/jquery.rateyo.js"></script>
@@ -37,72 +39,68 @@
 						        <span class="icon-bar"></span>
 						        <span class="icon-bar"></span>
 							</button>
+							
 							<a class="navbar-brand" href="#">Filters</a>
 					    </div>
 					
 					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<div>
+						<div> 
+						
+						<form action="filter.php" method="post">
 							<ul class="nav navbar-nav" style="padding-left:150px;"  >
 						        <li class="dropdown">
-						          <a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button"   aria-expanded="false">Sort By <span class="caret"></span></a>
-						          <ul class="dropdown-menu" role="menu" >
-						            <li><a href="#">Low to High</a></li>
-						            <li><a href="#">High to Low</a></li>
-						          </ul>
+						          <a href="#"  aria-expanded="false">Sort By <span class="caret"></span></a>
+						          <select name="order">
+											<option value="ASEC">Low to High</option>
+											<option value="DESC">High to Low</option>
+										</select>
+											
 						        </li>
 								<li class="dropdown">
-						          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Category<span class="caret"></span></a>
-						          <ul class="dropdown-menu" role="menu">
-						            <li><a href="#">Single Room</a></li>
-						            <li><a href="#">Double Room</a></li>
-						            <li><a href="#">Flat</a></li>
-						          </ul>
-						        </li>
+						          <a href="#"  aria-expanded="false">Category</a>
+						          <select name="category">
+											<option value="1">Flat</option>
+											<option value="2">Hostel</option>
+											<option value="">Both</option>
+											</select>
+										</li>
 								<li class="dropdown">
-						          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gender <span class="caret"></span></a>
-						          <ul class="dropdown-menu" role="menu">
-						            <li><a href="#">Male</a></li>
-						            <li><a href="#">Female</a></li>
-						          </ul>
+						          <a href="#" aria-expanded="false">Gender </a>
+						          <select name="gender">
+											<option value="m">male</option>
+											<option value="f">female</option>
+										</select>
 						        </li>
 						
 								<li class="dropdown">
-						          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Min Price <span class="caret"></span></a>
-						          <ul class="dropdown-menu" role="menu">
-						            <li><a href="#">Min</a></li>
-						            <li><a href="#">1000</a></li>
-						            <li><a href="#">2000</a></li>
-						            <li><a href="#">5000</a></li>
-						            <li><a href="#">7000</a></li>
-						            <li><a href="#">10000</a></li>
-						            <li><a href="#">15000</a></li>
-						          </ul>
+						          <a href="#" aria-expanded="false">Min Price</a>
+						          <select name="min-price">
+											<option value="5000">Min Price</option>
+											<option value="5000">5000</option>
+											<option value="7000">7000</option>
+											<option value="10000">10000</option>
+											<option value="15000">15000</option>
+											<option value="20000">20000</option>
+										</select>
 						        </li>
 								<li class="dropdown">
-						          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Max Price <span class="caret"></span></a>
-						          <ul class="dropdown-menu" role="menu">
-						            <li><a href="#">5000</a></li>
-						            <li><a href="#">7000</a></li>
-						            <li><a href="#">10000</a></li>
-						            <li><a href="#">15000</a></li>
-						            <li><a href="#">20000</a></li>
-						            <li><a href="#">25000</a></li>
-						            <li><a href="#">Max</a></li>
-						          </ul>
+						          <a href="#"  role="button" aria-expanded="false">Max Price </a>
+						          <select name="max-price">
+											<option value="5000">Max Price</option>
+											<option value="7000">7000</option>
+											<option value="10000">10000</option>
+											<option value="15000">15000</option>
+											<option value="20000">20000</option>
+											<option value="25000">25000</option>
+										</select>
 						        </li>
-								
+								<button type="submit" class="btn btn-default">Search</button>
 							</ul>
 							<form class="navbar-form navbar-left" role="search">
 						        <div class="form-group">
 									<input type="text" class="form-control" placeholder="City">
 						        </div>
-						        <button type="submit" class="btn btn-default">Search</button>
-						    </form>
-							<form class="navbar-form navbar-left" role="search">
-						        <div class="form-group">
-									<input type="text" class="form-control" placeholder="Locality">
-						        </div>
-						        <button type="submit" class="btn btn-default">Search</button>
+						        
 						    </form>
 						</div>
 						<div style="float:left;width:100%" class="row">
@@ -127,6 +125,7 @@
 					    </div>
 				  </div>
 				  
+					</form>		
 				  
 				</nav>
 			</div>

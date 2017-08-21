@@ -24,6 +24,7 @@
       <button>create</button>
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>
+	
     <form class="login-form" action="formsign.php" method="POST" enctype="multipart/form-data">
     <input type="text" name="username" id="username" placeholder="name"/>
     <input type="password" type="password" name="password" id="password" placeholder="password"/>

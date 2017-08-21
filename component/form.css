@@ -14,13 +14,14 @@ body{
 	top:30px;
     font-family:agency fb;
     background-color: #e80d0d;
-    z-index:0;
+    z-index:1000;
 }
 #heading{
     margin-top: 20px;
     padding : 15px;
     font-size: 32px;
     color: white;
+	z-index:1000;
 }
 
 .form{
