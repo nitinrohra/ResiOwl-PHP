@@ -1,9 +1,14 @@
 
 
-+3 <?php
+ <?php
 	session_start();
 	$_SESSION['page-name']="search.php";
+	$con=mysqli_connect('localhost','root','','resiowl');
+  $querry = "SELECT * FROM `result`";
+	$dat	=	mysqli_query($con,$querry);
+	$data	=	mysqli_fetch_array($dat);
 ?>
+
 
 
 <!DOCTYPE html>
@@ -51,7 +56,7 @@
 						        <li class="dropdown">
 						          <a href="#"  aria-expanded="false">Sort By <span class="caret"></span></a>
 						          <select name="order">
-											<option value="ASEC">Low to High</option>
+											<option value="ASC">Low to High</option>
 											<option value="DESC">High to Low</option>
 										</select>
 											
@@ -60,7 +65,7 @@
 						          <a href="#"  aria-expanded="false">Category</a>
 						          <select name="category">
 											<option value="1">Flat</option>
-											<option value="2">Hostel</option>
+											<option value="0">Hostel</option>
 											<option value="">Both</option>
 											</select>
 										</li>
@@ -145,7 +150,8 @@
 					</div>
 					<div  class="content col-xs-12 col-sm-6 col-md-8 row">
 						<div class="box"></div> 
-						<div class="glyphicon glyphicon-map-marker des"> Locality</div>
+						<div class="glyphicon glyphicon-map-marker des"> <?php echo $data['plot'];echo $data['colony'];echo $data['street'];
+					echo 	$data['city'];echo $data['state']; ?></div>
 						<div class="glyphicon glyphicon-user des"> Boys</div>
 						<div class="glyphicon glyphicon-user des"> Single Room</div>
 						
@@ -165,8 +171,8 @@
 						</div>
 						<br />
 						<br />
-						<div class="col-md-6"><h4>Rent -</h4><h3 style="color:black;">&#8377 5489 </h3></div>
-						<div class="col-md-6"><h4>Security Deposit -</h4><h3 style="color:black;">&#8377 5489 </h3></div>
+						<div class="col-md-6"><h4>Rent -</h4><h3 style="color:black;">&#8377 <?php echo $data['rent']; ?></h3></div>
+						<div class="col-md-6"><h4>Security Deposit -</h4><h3 style="color:black;">&#8377<?php echo $data['security_deposit']; ?></h3></div>
 						
 						<div class="col-xs-12 row" style="padding:2%;">
 							<div class="col-xs-12" style="font-size:18px;color:black">Distance From (Kms) :-</div>
@@ -180,7 +186,7 @@
 						<br /><br /><br />
 						<div class="row" style="margin-left:3%;">
 							<div class="form-group col-xs-9 col-md-5" style="padding:0;">
-								<textarea class="form-control" id="usr" style="float:left;"></textarea>
+								<textarea class="form-control" id="usr" style="float:left;"><?php echo $data['description']; ?></textarea>
 							</div>
 							<div class="col-xs-3" style="padding:0;">
 								<button type="button" class="btn btn-success" style="float:left;margin-left:2px;">Comment</button>
