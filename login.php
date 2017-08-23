@@ -40,7 +40,7 @@
 				<button class="loginBtn loginBtn--google btn-block">
 		  		<center>Login with Google</center>
 				</button>
-				<form name="loginform" novalidate action="login_db.php" method="post">
+				<form name="loginform" action="login_db.php" method="post">
 					<center><h3>or</h3></center>
 					<div class="form-group" ng-submit="">
 						<label for="formGroupExampleInput"></label>
@@ -70,7 +70,7 @@
 		<div class="bg row">
 			<div class=" hidden-xs col-sm-2"></div>
 			<div class="signup col-xs-12 col-sm-8" ng-if="!ctrl.logstatus" >
-				<form name="sform" ng-submit="ctrl.submit(sform)" novalidate action="signup_action.php">
+				<form name="sform" ng-submit="ctrl.submit(sform)" action="signup_action.php">
 						<h1>Sign Up</h1>
 						<hr>
 						<div class="row">

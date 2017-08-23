@@ -21,6 +21,7 @@
             
             <link rel="stylesheet" href="component/demo.css">
             <link href="component/bootstrap.css" type="text/css" rel="stylesheet">
+            <<script></script>
 		    
             <style>
                 li:hover { 

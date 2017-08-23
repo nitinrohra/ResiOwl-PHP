@@ -24,7 +24,6 @@
 		<script type="text/javascript" src="component/jquery.min.js"></script>
 		<script type="text/javascript" src="component/jquery.rateyo.js"></script>
 		<script src="component/bootstrap.min.js"></script>
-		<script src="component/main.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="component/jquery.bxslider.min.js"></script>
 		<link href="component/jquery.bxslider.css" rel="stylesheet" />
