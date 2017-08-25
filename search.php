@@ -200,10 +200,8 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			
-			
-			<div class="row" >
+			</div>	
+			<div class="row">
 				<div class="data" style="z-index:100;background-color:rgba(160,82,42,0.7);color:white;">
 				<p>Flat</p>
 					<div class="image col-xs-12 col-sm-6 col-md-4">

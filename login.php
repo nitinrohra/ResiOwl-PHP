@@ -40,7 +40,7 @@
 				<button class="loginBtn loginBtn--google btn-block">
 		  		<center>Login with Google</center>
 				</button>
-				<form name="loginform" action="login_db.php" method="post">
+				<form name="loginform" action="login_db.php" method="post" novalidate="novalidate">
 					<center><h3>or</h3></center>
 					<div class="form-group" ng-submit="">
 						<label for="formGroupExampleInput"></label>
@@ -51,7 +51,7 @@
 						<input type="password" class="form-control" name="password" id="formGroupExampleInput2" placeholder="Enter Password" ng-model="password" required>
 						<span ng-if="loginform.password.$invalid && loginform.$submitted">Password Required<br></span>
 						<a href="#" class="forgot">forgot password</a><br><br>
-						<button type="submit" class="btn btn-warning btn-block">Login</button>
+						<input type="submit" class="btn btn-warning btn-block" ng-disabled="loginform.$invalid">Login</button>
 						
 					</div>
 				</form>
@@ -70,7 +70,7 @@
 		<div class="bg row">
 			<div class=" hidden-xs col-sm-2"></div>
 			<div class="signup col-xs-12 col-sm-8" ng-if="!ctrl.logstatus" >
-				<form name="sform" ng-submit="ctrl.submit(sform)" action="signup_action.php">
+				<form name="sform" ng-submit="ctrl.submit(sform)" action="signup_action.php" novalidate="novalidate">
 						<h1>Sign Up</h1>
 						<hr>
 						<div class="row">
@@ -147,7 +147,7 @@
 							<br><br><br>
 							<div class=" hidden-xs col-sm-3"></div><br><br><br>
 							<div class="col-xs-12 col-sm-6">
-						 <button style="margin-top:5%" ng-click="ctrl.check()" type="submit" class="btn btn-danger btn-block">Create An Account</button>
+						 <input style="margin-top:5%" ng-click="ctrl.check()" type="submit" ng-disabled="sform.$invalid" class="btn btn-danger btn-block">Create An Account</button>
 							</div>
 						</div>
 				</form>	
