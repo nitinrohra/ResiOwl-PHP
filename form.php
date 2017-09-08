@@ -22,7 +22,7 @@
     </head>
         <body>
 			<?php include('includes/header.php'); ?>
-			<br><br><br><br>
+			<br><br><br><br><br>
             <div id="tophead">
                 <center><span id="heading">Property Details</span></center>
 
@@ -30,12 +30,12 @@
 
             <div class="form">
                 <div class="tab">
-                    <button class="tablinks" onclick="openCity(event, 'hostel')">HOSTEL/PG</button>
+                    <button class="tablinks active" aria-expanded="true"  onclick="openCity(event, 'hostel')">HOSTEL/PG</button>
                     <button class="tablinks" onclick="openCity(event, 'flat')">FLAT</button>
                     
                     </div>
 
-                    <div id="hostel" class="tabcontent">
+                    <div id="hostel" class="tabcontent active ">
 
 <!-- -------------ernter here---------------------------- -->
                      <?php include('includes/hostelform.php'); ?>

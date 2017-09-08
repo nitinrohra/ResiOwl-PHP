@@ -1,6 +1,6 @@
 
 
-<form class="well form-horizontal" action=" " method="post"  id="contact_form">
+<form class="well form-horizontal" action="form_data.php" method="post"  id="contact_form">
 <fieldset>
 
 <div class="form-group">
@@ -8,7 +8,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="first_name" placeholder="Building Name" class="form-control"  type="text">
+  <input  name="name" placeholder="Building Name" class="form-control"  type="text">
     </div>
   </div>
 </div>
@@ -36,7 +36,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-  <input name="address" placeholder="Plot" class="form-control" type="text">
+  <input name="plot" placeholder="Plot" class="form-control" type="text">
     </div>
   </div>
 </div>
@@ -45,7 +45,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-  <input name="address" placeholder="Colony" class="form-control" type="text">
+  <input name="colony" placeholder="Colony" class="form-control" type="text">
     </div>
   </div>
 </div>
@@ -54,7 +54,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-  <input name="address" placeholder="Street" class="form-control" type="text">
+  <input name="street" placeholder="Street" class="form-control" type="text">
     </div>
   </div>
 </div>
@@ -65,7 +65,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-  <input name="address" placeholder="LandMark" class="form-control" type="text">
+  <input name="landmark" placeholder="LandMark" class="form-control" type="text">
     </div>
   </div>
 </div>
@@ -132,17 +132,39 @@
                         <div class="col-md-4">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="hosting" value="yes"/> One BHK
+                                    <input type="radio" name="type" value="yes"/> One BHK
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="hosting" value="no" /> Two BHK
+                                    <input type="radio" name="type" value="no" /> Two BHK
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="hosting" value="no" /> Three BHK
+                                    <input type="radio" name="type" value="no" /> Three BHK
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+<!--  checksbox -->
+<!-- radio checks -->
+ <div class="form-group">
+                        <label class="col-md-4 control-label">people prefered</label>
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="gender" value="yes"/> male
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="gender" value="no" /> female
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="gender" value="no" /> family
                                 </label>
                             </div>
                         </div>
@@ -153,31 +175,31 @@
                         <div class="col-md-4">
                             <div class="radio">
                                 <label>
-                                    <input type="checkbox" value="">Bed 
+                                    <input type="checkbox" value="Bed;">Bed 
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                     <input type="checkbox" value="">Fridge
+                                     <input type="checkbox" value="Fridge;">Fridge
                                 </label>
                             </div>
                              <div class="radio">
                                 <label>
-                                     <input type="checkbox" value="">A.C.
+                                     <input type="checkbox" value="A.C.;">A.C.
                                 </label>
                             </div><div class="radio">
                                 <label>
-                                    <input type="checkbox" value="">Cooler 
+                                    <input type="checkbox" value="Cooler;">Cooler 
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="checkbox" value="">Wardrobe 
+                                    <input type="checkbox" value="Wardrobe;">Wardrobe 
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                     <input type="checkbox" value="">Swiming Pool
+                                     <input type="checkbox" value="Swiming Pool">Swiming Pool
                                 </label>
                             </div>
                         </div>
@@ -215,13 +237,59 @@
                         </div>
                     </div>
 
+<!--  distance-->
+<div class="form-group">
+  <label class="col-md-4 control-label">Distance From</label>  
+   <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon">KM</span>
+  <input name="hospital" placeholder="nearest Hospital" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>  
+   <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon">KM</span>
+  <input name="mall" placeholder="nearest Mall" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>  
+   <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon">KM</span>
+  <input name="grocery_store" placeholder="nearest Grocery Store" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>  
+   <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon">KM</span>
+  <input name="restaurant" placeholder="nearest restaurant" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>  
+   <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        <span class="input-group-addon">KM</span>
+  <input name="trans" placeholder="nearest Transportation" class="form-control" type="text">
+    </div>
+  </div>
+</div>					
 <!--  Price Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label">Monthly Rent</label>  
    <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon">&#8377</span>
-  <input name="website" placeholder="Monthly Rent" class="form-control" type="text">
+  <input name="rent" placeholder="Monthly Rent" class="form-control" type="text">
     </div>
   </div>
 </div>
@@ -232,7 +300,7 @@
    <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon">&#8377</span>
-  <input name="website" placeholder="Security Deposit" class="form-control" type="text">
+  <input name="deposit" placeholder="Security Deposit" class="form-control" type="text">
     </div>
   </div>
 </div>
@@ -255,7 +323,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-        	<textarea class="form-control" name="comment" placeholder="Flat Description"></textarea>
+        	<textarea class="form-control" name="description" placeholder="Flat Description"></textarea>
   </div>
   </div>
 </div>

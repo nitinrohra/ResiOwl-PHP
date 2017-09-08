@@ -1,7 +1,15 @@
 <?php
 	session_start();
 	$_SESSION['page-name'] = "login.php";
+
+	if(isset($_SESSION['login_error']))
+	{
+		echo $_SESSION['login_error'];
+		unset($_SESSION['login_error']);
+	}
 ?>
+
+
 
 <html ng-app="Resiowl">
   <head>
@@ -19,20 +27,12 @@
             <!-- --------------------------------- top bar   ------------------------------- -->
                             <?php include('includes/header.php'); ?>
 
-                            
+           
 		<div id="fb-root" ></div>
 		<div  ng-controller="formctrl as ctrl">
 		<div class="bg row" >
 			<div class=" hidden-xs col-sm-4"></div>
-	    
-			
-
-
-
-		<!-- ----------------------------------------------------LOGIN----------------------------------------- -->
-
-
-			<div class="login col-xs-12 col-sm-4" ng-if="ctrl.logstatus">
+	    <div class="login col-xs-12 col-sm-4" ng-if="ctrl.logstatus">
 	  		<h1>Login</h1><hr><br/>
 				<button class="loginBtn loginBtn--facebook btn-block">
 					<center>Login with Facebook</center>
@@ -40,18 +40,18 @@
 				<button class="loginBtn loginBtn--google btn-block">
 		  		<center>Login with Google</center>
 				</button>
-				<form name="loginform" action="login_db.php" method="post" novalidate="novalidate">
+				<form name="loginform" action="login_db.php" method="POST" novalidate>
 					<center><h3>or</h3></center>
-					<div class="form-group" ng-submit="">
+		  		<div class="form-group" ng-submit="">
 						<label for="formGroupExampleInput"></label>
-						<input type="email" class="form-control" name="email" id="formGroupExampleInput" placeholder="Enter Email" ng-model="email" required>
+						<input type="email" class="form-control" name="email" id="formGroupExampleInput" placeholder="Enter Email Or Username" ng-model="email" required>
 						<span ng-if="loginform.email.$error.required && loginform.$submitted">Email is Required</span>
 						<span ng-if="loginform.email.$error.email && loginform.$submitted">Email format is incorrect</span>
 						<label for="formGroupExampleInput2"></label>
 						<input type="password" class="form-control" name="password" id="formGroupExampleInput2" placeholder="Enter Password" ng-model="password" required>
 						<span ng-if="loginform.password.$invalid && loginform.$submitted">Password Required<br></span>
 						<a href="#" class="forgot">forgot password</a><br><br>
-						<input type="submit" class="btn btn-warning btn-block" ng-disabled="loginform.$invalid">Login</button>
+						<button type="submit" class="btn btn-warning btn-block">Login</button>
 						
 					</div>
 				</form>
@@ -63,14 +63,14 @@
 
 
 
-		<!-- --------------------------------------------SIGN UP-------------------------------------------------- -->
+
 
 
 
 		<div class="bg row">
 			<div class=" hidden-xs col-sm-2"></div>
 			<div class="signup col-xs-12 col-sm-8" ng-if="!ctrl.logstatus" >
-				<form name="sform" ng-submit="ctrl.submit(sform)" action="signup_action.php" novalidate="novalidate">
+				<form name="sform" action="usersignup.php" method="post" ng-submit="ctrl.submit(sform)" novalidate>
 						<h1>Sign Up</h1>
 						<hr>
 						<div class="row">
@@ -79,24 +79,24 @@
 						<div class="col-xs-12 col-sm-6"><button class="btn-info btn btn-block" ng-click="ctrl.statuschange()">Login</button></center></div>
 						<br><br><hr>
 						
-						<div class="col-xs-12 col-sm-6">
+							<div class="col-xs-12 col-sm-6">
 						<p>First Name<font>*</font></p>
-            <input type="text" nam e="Name" class="form-control" ng-model="ctrl.name" required>
+            <input type="text" name="Name" class="form-control" ng-model="ctrl.fname" required>
 						<span ng-if="sform.Name.$invalid && sform.$submitted">Field Required<br></span><br>
 							</div>
 							<div class="col-xs-12 col-sm-6">
 								<p>Last Name</p>
-								<input type="text" name="LastName" class="form-control" ng-model="ctrl.name" >
+								<input type="text" name="LastName" class="form-control" ng-model="ctrl.lname" >
 								<br>
 							</div>
 							<div class="col-xs-12 col-sm-6">
 						<p>Phone no.<font>*</font></p>
-            <input type="text" name="phoneno" class="form-control" ng-model="ctrl.name" required>
+            <input type="text" name="phoneno" class="form-control" ng-model="ctrl.phn" required>
 						<span ng-if="sform.Name.$invalid && sform.$submitted">Field Required<br></span><br>
 							</div>
 							<div class="col-xs-12 col-sm-6">
-							<p>Adhar Card no.<font>*</font></p>
-							<input type="text" name="idno" class="form-control" ng-model="ctrl.name" required>
+							<p>Alternative Phone No.<font>*</font></p>
+							<input type="text" name="al-phn" class="form-control" ng-model="ctrl.idno" required>
 							<span ng-if="sform.Name.$invalid && sform.$submitted">Field Required<br></span><br>
 							</div>
 						
@@ -119,16 +119,16 @@
 							</div>
 							<div class="col-xs-12 col-sm-6">
 						<p>Re-enter Password<font>*</font></p>
-		       	<input type="password" name="reenter" class="form-control" ng-model="ctrl.renter" data-toggle="password" required>
+		       	<input type="password" name="repass" class="form-control" ng-model="ctrl.renter" data-toggle="password" required>
 						<span ng-if="sform.reenter.$invalid && sform.$submitted">Field Required<br></span><br>
 							</div>
 							<div class="col-xs-12 col-sm-6">
 						<p>Login as:</p>
 			 			<label class="radio-inline rad">
-              <input type="radio" name="usertype" value="0" ng-model="ctrl.auth">Tenant
+              <input type="radio" name="usertype" value="0" ng-model="ctrl.auth" >Tenant
 						</label>
 	          <label class="radio-inline rad">
-	            <input type="radio" name="usertype"value="1" ng-model="ctrl.auth">Land Lord
+	            <input type="radio" name="usertype" value="1" ng-model="ctrl.auth">Land Lord
 						</label>
 						<span ng-if="sform.auth.$invalid && sform.$submitted">Auth Type Required<br></span><br><br/>
 							</div>
@@ -147,13 +147,14 @@
 							<br><br><br>
 							<div class=" hidden-xs col-sm-3"></div><br><br><br>
 							<div class="col-xs-12 col-sm-6">
-						 <input style="margin-top:5%" ng-click="ctrl.check()" type="submit" ng-disabled="sform.$invalid" class="btn btn-danger btn-block">Create An Account</button>
+						 <button style="margin-top:5%" ng-click="ctrl.check()" type="submit" class="btn btn-danger btn-block">Create An Account</button>
 							</div>
 						</div>
 				</form>	
       </div>
 		</div>
-	</div>	 <!-- ---------------------------------------footer----------------------------- -->
+	</div>
+	 <!-- ---------------------------------------footer----------------------------- -->
         <?php include('includes/footer.php'); ?>
 		 <!-- ---------------------------------------footer----------------------------- -->
         

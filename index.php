@@ -21,7 +21,6 @@
             
             <link rel="stylesheet" href="component/demo.css">
             <link href="component/bootstrap.css" type="text/css" rel="stylesheet">
-            <<script></script>
 		    
             <style>
                 li:hover { 
@@ -191,14 +190,19 @@
 		<div class="a row">
 		    <div class="aa col-xs-12 col-md-5 col-sm-5">
                 <h1 style="color: red">Contact Us </h1>
-                <p >Name*</p>
-                <input type="text" id="text" name="text_name" class="mytext" >
-                <p>Email*</p>
-                <input type="text" id="text" name="text_email" class="mytext" >
-                <p>Message</p>
-                <input type="text" id="text1" name="text_msg" class="mytext1" ><br />
-                <button class="button1">SUBMIT</button>
-                <br />   
+                <form method="post" id="mailform" action="mail.php">
+					<p >Name*</p>
+	                <input type="text" id="text" name="text_name" class="mytext" required>
+	                <p>Email*</p>
+	                <input type="text" id="text" name="text_id" class="mytext" required>
+	                <p>Message*</p>
+	                <input type="text" id="text1" name="text_msg" class="mytext1" required><br /><br/>
+	                <button type="submit" class="btn-danger">Send Mail</button>
+	                <br />
+				</form>
+				<script>
+				$('#mailform').validate();
+				</script>   
 			</div>
 			<div class="col-xs-0 col-sm-1"></div>
 			<div class="bb col-xs-12 col-md-6 col-sm-5">
